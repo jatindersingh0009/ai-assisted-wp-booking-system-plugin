@@ -1,0 +1,259 @@
+/* WP Booking System – Public Styles */
+:root {
+	--wpbs-primary:   #0073aa;
+	--wpbs-success:   #28a745;
+	--wpbs-danger:    #dc3545;
+	--wpbs-warning:   #ffc107;
+	--wpbs-radius:    8px;
+	--wpbs-shadow:    0 2px 12px rgba(0,0,0,.08);
+}
+
+/* ── Booking Form ── */
+.wpbs-booking-form-wrap {
+	max-width: 860px;
+	margin: 0 auto;
+	font-size: 15px;
+}
+
+/* Steps */
+.wpbs-steps {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 32px;
+	position: relative;
+}
+.wpbs-steps::before {
+	content: '';
+	position: absolute;
+	top: 20px;
+	left: 10%;
+	right: 10%;
+	height: 2px;
+	background: #ddd;
+}
+.wpbs-step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: #999;
+	position: relative;
+	z-index: 1;
+}
+.wpbs-step span {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #ddd;
+	color: #999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 16px;
+}
+.wpbs-step.active span, .wpbs-step.completed span {
+	background: var(--wpbs-primary);
+	color: #fff;
+}
+.wpbs-step.active { color: var(--wpbs-primary); font-weight: 600; }
+
+/* Step Content */
+.wpbs-step-content { display: none; }
+.wpbs-step-content.active { display: block; }
+
+/* Services Grid */
+.wpbs-service-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 20px;
+}
+.wpbs-service-card {
+	border: 2px solid #e5e7eb;
+	border-radius: var(--wpbs-radius);
+	padding: 20px;
+	cursor: pointer;
+	transition: border-color .2s, box-shadow .2s;
+}
+.wpbs-service-card:hover { border-color: var(--wpbs-primary); box-shadow: var(--wpbs-shadow); }
+.wpbs-service-card.selected { border-color: var(--wpbs-primary); background: #f0f8ff; }
+.wpbs-service-card h3 { margin: 0 0 8px; }
+.wpbs-service-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; margin-bottom: 12px; }
+.wpbs-service-meta { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; color: #555; font-size: 14px; }
+.wpbs-price { font-size: 18px; font-weight: 700; color: var(--wpbs-primary); }
+
+/* Calendar */
+.wpbs-datetime-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.wpbs-cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.wpbs-cal-header button { background: none; border: 1px solid #ddd; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 18px; }
+.wpbs-cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 12px; font-weight: 600; color: #888; margin-bottom: 4px; }
+.wpbs-cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.wpbs-cal-day {
+	aspect-ratio: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-size: 13px;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+.wpbs-cal-day.available:hover { background: #e8f0fe; border-color: var(--wpbs-primary); }
+.wpbs-cal-day.selected { background: var(--wpbs-primary); color: #fff; }
+.wpbs-cal-day.unavailable { color: #ccc; cursor: not-allowed; }
+.wpbs-cal-day.today { font-weight: 700; border: 1px solid var(--wpbs-primary); }
+
+/* Time Slots */
+.wpbs-time-slots { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.wpbs-time-slot {
+	padding: 8px 14px;
+	border: 1px solid #ddd;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 13px;
+	transition: all .15s;
+}
+.wpbs-time-slot:hover { border-color: var(--wpbs-primary); background: #f0f8ff; }
+.wpbs-time-slot.selected { background: var(--wpbs-primary); color: #fff; border-color: var(--wpbs-primary); }
+
+/* Summary Box */
+.wpbs-summary-box {
+	background: #f8faff;
+	border: 1px solid #d0e0f8;
+	border-radius: var(--wpbs-radius);
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.wpbs-summary-box h3 { margin: 0 0 12px; font-size: 15px; }
+.wpbs-summary-box p { margin: 6px 0; }
+.wpbs-price-line { font-size: 18px; font-weight: 700; color: var(--wpbs-primary); border-top: 1px solid #d0e0f8; padding-top: 8px; margin-top: 8px; }
+
+/* Form */
+.wpbs-form-group { margin-bottom: 16px; }
+.wpbs-form-group label { display: block; font-weight: 600; margin-bottom: 6px; }
+.wpbs-form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; resize: vertical; }
+
+/* Payment */
+.wpbs-payment-methods { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.wpbs-payment-option { display: none; }
+.wpbs-payment-option + .wpbs-payment-label {
+	border: 2px solid #e5e7eb;
+	border-radius: var(--wpbs-radius);
+	padding: 14px 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-width: 160px;
+	transition: border-color .2s;
+}
+.wpbs-payment-option:checked + .wpbs-payment-label { border-color: var(--wpbs-primary); background: #f0f8ff; }
+.wpbs-stripe-card-input {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 12px;
+	margin-bottom: 12px;
+	background: #fff;
+}
+.wpbs-error-msg { color: var(--wpbs-danger); font-size: 13px; margin-top: 4px; min-height: 18px; }
+
+/* Buttons */
+.wpbs-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all .15s;
+}
+.wpbs-btn:disabled { opacity: .5; cursor: not-allowed; }
+.wpbs-btn-primary  { background: var(--wpbs-primary); color: #fff; border-color: var(--wpbs-primary); }
+.wpbs-btn-primary:hover { background: #005f8e; border-color: #005f8e; color: #fff; }
+.wpbs-btn-outline  { background: transparent; color: var(--wpbs-primary); border-color: var(--wpbs-primary); }
+.wpbs-btn-outline:hover { background: #f0f8ff; }
+.wpbs-btn-danger   { background: var(--wpbs-danger); color: #fff; border-color: var(--wpbs-danger); }
+.wpbs-btn-back     { background: #f0f0f0; color: #444; border-color: #ddd; }
+.wpbs-btn-sm       { padding: 6px 12px; font-size: 13px; }
+.wpbs-step-nav     { display: flex; justify-content: space-between; margin-top: 24px; }
+
+/* Confirmation */
+.wpbs-confirmation { text-align: center; padding: 40px 20px; }
+.wpbs-confirmation-icon {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: var(--wpbs-success);
+	color: #fff;
+	font-size: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 20px;
+}
+.wpbs-icon-pending { background: var(--wpbs-warning); color: #333; }
+.wpbs-confirmation-details { max-width: 440px; margin: 0 auto 24px; text-align: left; }
+.wpbs-confirm-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Loading */
+.wpbs-loading { display: flex; align-items: center; gap: 8px; color: #555; }
+.wpbs-spinner {
+	width: 18px;
+	height: 18px;
+	border: 2px solid #ddd;
+	border-top-color: var(--wpbs-primary);
+	border-radius: 50%;
+	animation: wpbs-spin .7s linear infinite;
+}
+@keyframes wpbs-spin { to { transform: rotate(360deg); } }
+
+/* Messages */
+.wpbs-message { padding: 12px 16px; border-radius: 4px; margin-bottom: 16px; }
+.wpbs-message.success { background: #d4edda; color: #155724; }
+.wpbs-message.error   { background: #f8d7da; color: #721c24; }
+.wpbs-login-notice    { background: #fff3cd; padding: 12px 16px; border-radius: 4px; }
+.wpbs-hint            { color: #888; font-style: italic; }
+
+/* Badges */
+.wpbs-badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.wpbs-badge-confirmed { background: #d4edda; color: #155724; }
+.wpbs-badge-paid      { background: #d4edda; color: #155724; }
+.wpbs-badge-pending   { background: #fff3cd; color: #856404; }
+.wpbs-badge-cancelled { background: #f8d7da; color: #721c24; }
+.wpbs-badge-failed    { background: #f8d7da; color: #721c24; }
+.wpbs-badge-completed { background: #d1ecf1; color: #0c5460; }
+
+/* Customer Dashboard */
+.wpbs-customer-dashboard { max-width: 800px; margin: 0 auto; }
+.wpbs-dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.wpbs-dashboard-tabs { display: flex; gap: 0; border-bottom: 2px solid #ddd; margin-bottom: 24px; }
+.wpbs-dashboard-tabs a { padding: 10px 20px; text-decoration: none; color: #555; border-bottom: 3px solid transparent; margin-bottom: -2px; font-weight: 600; }
+.wpbs-dashboard-tabs a.active { color: var(--wpbs-primary); border-bottom-color: var(--wpbs-primary); }
+.wpbs-bookings-list { display: flex; flex-direction: column; gap: 16px; }
+.wpbs-booking-card { border: 1px solid #e5e7eb; border-radius: var(--wpbs-radius); overflow: hidden; box-shadow: var(--wpbs-shadow); }
+.wpbs-booking-card-header { background: #f8f9fa; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+.wpbs-booking-ref { font-weight: 700; font-family: monospace; color: var(--wpbs-primary); }
+.wpbs-booking-card-body { padding: 16px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.wpbs-booking-detail { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.wpbs-detail-icon { font-size: 16px; }
+.wpbs-booking-card-footer { padding: 12px 16px; border-top: 1px solid #f0f0f0; display: flex; gap: 8px; }
+.wpbs-empty-state { text-align: center; padding: 60px 20px; color: #888; }
+
+/* Detail Table */
+.wpbs-detail-table { width: 100%; border-collapse: collapse; }
+.wpbs-detail-table th, .wpbs-detail-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+.wpbs-detail-table th { width: 40%; color: #555; font-weight: 600; text-align: left; }
+
+/* Responsive */
+@media (max-width: 600px) {
+	.wpbs-datetime-picker { grid-template-columns: 1fr; }
+	.wpbs-service-grid { grid-template-columns: 1fr; }
+	.wpbs-steps { font-size: 11px; }
+	.wpbs-steps span { width: 30px; height: 30px; font-size: 14px; }
+	.wpbs-booking-card-body { grid-template-columns: 1fr; }
+}

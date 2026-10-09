@@ -1,0 +1,77 @@
+/* WP Booking System – Admin Styles */
+.wpbs-admin .wpbs-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+	margin: 20px 0;
+}
+.wpbs-stat-card {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.wpbs-stat-card.wpbs-stat-success { border-left: 4px solid #28a745; }
+.wpbs-stat-card.wpbs-stat-warning { border-left: 4px solid #ffc107; }
+.wpbs-stat-card.wpbs-stat-info    { border-left: 4px solid #17a2b8; }
+.wpbs-stat-icon { font-size: 32px; color: #0073aa; }
+.wpbs-stat-number { display: block; font-size: 28px; font-weight: 700; color: #23282d; }
+.wpbs-stat-label  { display: block; font-size: 13px; color: #666; }
+.wpbs-dashboard-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.wpbs-dashboard-col { flex: 2; min-width: 0; }
+.wpbs-dashboard-col-sidebar { flex: 1; min-width: 200px; }
+.wpbs-card { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 20px; margin-bottom: 20px; }
+.wpbs-card h2 { margin-top: 0; font-size: 16px; }
+.wpbs-table { border-collapse: collapse; width: 100%; }
+.wpbs-table th, .wpbs-table td { padding: 10px 12px; text-align: left; }
+.wpbs-table thead th { background: #f9f9f9; font-weight: 600; }
+.wpbs-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.wpbs-badge-confirmed, .wpbs-badge-paid { background: #d4edda; color: #155724; }
+.wpbs-badge-pending  { background: #fff3cd; color: #856404; }
+.wpbs-badge-cancelled, .wpbs-badge-failed { background: #f8d7da; color: #721c24; }
+.wpbs-badge-completed { background: #d1ecf1; color: #0c5460; }
+.wpbs-badge-rejected  { background: #e2e3e5; color: #383d41; }
+.wpbs-badge-refunded, .wpbs-badge-partially_refunded { background: #cce5ff; color: #004085; }
+.wpbs-gateway-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.wpbs-gateway-paypal { background: #e8f0ff; color: #003087; }
+.wpbs-gateway-stripe { background: #f0eeff; color: #6772e5; }
+.wpbs-filter-form { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.wpbs-filter-form input, .wpbs-filter-form select { max-width: 160px; }
+.wpbs-bulk-actions { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
+.wpbs-pagination { margin-top: 12px; display: flex; gap: 4px; }
+.wpbs-booking-detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.wpbs-detail-table { width: 100%; border-collapse: collapse; }
+.wpbs-detail-table th, .wpbs-detail-table td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; }
+.wpbs-detail-table th { width: 40%; color: #555; font-weight: 600; }
+.wpbs-quick-actions li { list-style: none; margin-bottom: 8px; }
+.wpbs-big-number { font-size: 40px; font-weight: 700; color: #0073aa; margin: 0; }
+.wpbs-calendar-wrapper { height: 600px; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 20px; }
+.wpbs-calendar-filters { margin-bottom: 16px; display: flex; gap: 12px; align-items: center; }
+.wpbs-modal {
+	display: none;
+	position: fixed;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: rgba(0,0,0,.5);
+	z-index: 9999;
+	align-items: center;
+	justify-content: center;
+}
+.wpbs-modal-content { background: #fff; border-radius: 8px; padding: 24px; min-width: 400px; max-width: 600px; position: relative; }
+.wpbs-modal-close { position: absolute; top: 12px; right: 16px; font-size: 24px; cursor: pointer; line-height: 1; }
+.wpbs-service-form .form-table th { width: 220px; }
+@media (max-width: 782px) {
+	.wpbs-booking-detail-grid { grid-template-columns: 1fr; }
+	.wpbs-dashboard-row { flex-direction: column; }
+	.wpbs-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
